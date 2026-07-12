@@ -57,9 +57,3 @@ Raw JSON: [measured-results.json](measured-results.json). Demo stdout capture: [
 | Demo: timeout -> fallback | ok |
 | Demo: invalid-response -> fallback | ok |
 | Demo: PII absent from trace JSON | ok |
-
-## Resume bullets (copy as-is)
-
-- Built an OpenAI-compatible LLM reliability gateway with tenant rate/cost controls, PII redaction, exact caching, idempotent retries, circuit breaking, and model fallback; sustained **~11.9k req/s** with **0.11 ms p95** end-to-end gateway overhead on the checked-in fake-provider load bench (200 requests, 8 workers).
-- Developed a versioned evaluation and CI release gate across **24** synthetic enterprise escalation cases, blocking a degraded candidate (classification 1.00->0.17, citation 0.00, cost +1470%) while the baseline config passes.
-- Instrumented end-to-end traces and Prometheus metrics for tokens, estimated spend, cache hits, retry/fallback, and schema/error categories without persisting unredacted prompts.
