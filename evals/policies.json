@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pol-billing",
+    "title": "Billing dispute intake",
+    "excerpt": "Confirm charge date and amount, offer itemized receipt, escalate only if charge is unauthorized or duplicate.",
+    "category": "billing"
+  },
+  {
+    "id": "pol-access",
+    "title": "Account access recovery",
+    "excerpt": "Verify identity via registered email, reset session tokens, never share passwords over chat.",
+    "category": "access"
+  },
+  {
+    "id": "pol-outage",
+    "title": "Service outage response",
+    "excerpt": "Acknowledge regional impact, link status page, do not promise ETA unless ops has published one.",
+    "category": "outage"
+  },
+  {
+    "id": "pol-refund",
+    "title": "Refund eligibility",
+    "excerpt": "Refunds within 14 days for unused seats; prorate annual plans; require manager approval above $500.",
+    "category": "refund"
+  },
+  {
+    "id": "pol-security",
+    "title": "Security incident triage",
+    "excerpt": "Preserve logs, rotate compromised keys, notify security on-call; never ask customers for full card numbers.",
+    "category": "security"
+  },
+  {
+    "id": "pol-general",
+    "title": "General escalation",
+    "excerpt": "Capture severity, customer impact, and desired outcome; route to human review when policy is ambiguous.",
+    "category": "general"
+  }
+]

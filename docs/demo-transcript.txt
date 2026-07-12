@@ -1,0 +1,63 @@
+
+=== 1. Valid request -> primary ===
+classification=billing provider=fake model=fake-support
+
+=== 2. Repeated request -> exact cache ===
+cache_hit=True e2e_ms=0.056
+
+=== 3. PII redaction in audit metadata ===
+redaction_applied=True (no raw PII in trace JSON)
+
+=== 4. Provider timeout -> fallback ===
+fallback_used=True model=fake-support-fallback
+
+=== 5. Invalid structured output on primary -> fallback ===
+invalid-response on primary -> fallback model=fake-support-fallback
+
+=== 6. Degraded candidate fails release gate ===
+failures: classification_accuracy dropped 0.8333 (> 0.02 vs baseline 1.0000 -> 0.1667); citation_coverage 0.0000 < 0.95; mean_cost rose 1470.2% (> 20%; 0.000032 -> 0.000500); p95_latency_ms rose 4900.0% (> 25%; 1.000 -> 50.000)
+
+=== 7. Baseline candidate passes release gate ===
+passed schema=1.0 class=1.0 cite=1.0 mean_cost=0.000032
+
+=== 8. Idempotent replay does not double-bill ===
+spent_before=0.000096 after_first=0.000120 after_replay=0.000120
+
+Demo OK
+wrote C:\Users\omkar\OneDrive\Desktop\vaults\llm-reliability-control-plane\docs\measured-results.json
+=== throughput ===
+{
+  "n": 200,
+  "workers": 8,
+  "wall_s": 0.0168,
+  "throughput_rps": 11908.4,
+  "p50_ms": 0.038,
+  "p95_ms": 0.107,
+  "mean_ms": 0.051
+}
+
+=== cache ===
+{
+  "rounds": 50,
+  "miss_p50_ms": 0.059,
+  "miss_p95_ms": 0.095,
+  "hit_p50_ms": 0.041,
+  "hit_p95_ms": 0.056,
+  "p50_speedup_x": 1.46
+}
+
+=== fallback ===
+{
+  "n": 40,
+  "fallback_success": 40,
+  "fallback_success_rate": 1.0
+}
+
+=== idempotency ===
+{
+  "charged_once": true,
+  "spent_usd": 2e-05,
+  "replay_spent_usd": 2e-05
+}
+
+wrote C:\Users\omkar\OneDrive\Desktop\vaults\llm-reliability-control-plane\docs\measured-results.json

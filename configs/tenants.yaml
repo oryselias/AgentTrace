@@ -1,0 +1,8 @@
+# Local demo tenants. Runtime stores only sha256(api_key); plaintext is for fixtures.
+tenants:
+  - tenant_id: tenant_demo
+    key_id: key_demo
+    api_key: sk-demo-tenant-a
+    rpm: 60
+    daily_budget_usd: 10.0
+    cost_per_1k_tokens: 0.002

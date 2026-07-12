@@ -1,0 +1,20 @@
+# Deliberately degraded candidate — must fail the release gate.
+version: support-bad
+alias: support-default
+
+primary:
+  provider: fake
+  model: fake-support-degraded
+  timeout_ms: 5000
+
+fallback:
+  provider: fake
+  model: fake-support-fallback
+  timeout_ms: 5000
+
+max_retries: 1
+circuit_failure_threshold: 5
+circuit_reset_ms: 30000
+max_prompt_tokens: 4096
+max_output_tokens: 1024
+response_schema: null

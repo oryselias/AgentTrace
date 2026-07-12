@@ -1,0 +1,10 @@
+{
+  "n_cases": 24,
+  "schema_validity": 1.0,
+  "classification_accuracy": 1.0,
+  "citation_coverage": 1.0,
+  "forbidden_pass_rate": 1.0,
+  "p50_latency_ms": 1.0,
+  "p95_latency_ms": 1.0,
+  "mean_cost": 0.00003183333333333333
+}

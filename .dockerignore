@@ -1,0 +1,12 @@
+.venv/
+venv/
+.git/
+.cursor/
+**/__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+*.log
+.env
+docs/ideation/
+agent-transcripts/

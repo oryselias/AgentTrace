@@ -1,0 +1,15 @@
+# Local quick start — fake provider only, no paid model key.
+# Traces/cache/limits are in-process (see docs/architecture.md).
+services:
+  gateway:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      # Live-edit route/tenant YAML without rebuild
+      - ./configs:/app/configs:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5

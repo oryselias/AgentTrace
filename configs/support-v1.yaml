@@ -1,0 +1,25 @@
+# Shared by gateway load and eval gate. Bump `version` when behavior changes.
+version: support-v1
+alias: support-default
+
+primary:
+  provider: fake
+  model: fake-support
+  timeout_ms: 5000
+
+fallback:
+  provider: fake
+  model: fake-support-fallback
+  timeout_ms: 5000
+
+# HANDOFF: at most one retry for transient failures
+max_retries: 1
+
+circuit_failure_threshold: 5
+circuit_reset_ms: 30000
+
+max_prompt_tokens: 4096
+max_output_tokens: 1024
+
+# Optional path to a JSON schema for structured-output validation
+response_schema: null
